@@ -5,7 +5,29 @@
 #ifndef NIGHT_LIGHT_CONFIG_HPP
 #define NIGHT_LIGHT_CONFIG_HPP
 
-#ifdef __AVR_ATtiny84__
+#ifdef __AVR_ATtinyX4__
+
+// ATTiny84 pins: A=ADC, ~=PWM, 1=arduino pin no.
+//
+//                              +---+
+//                         VCC -+   +- GND
+//                           0 -+   +- 10  A      colour IN(ADC)
+//                           1 -+   +- 9   A      pir    IN(digital)
+//                      ¬RESET -+   +- 8   A      light  IN(digital)
+//  green OUT(PWM)         ~ 2 -+   +- 7   A
+//   blue OUT(PWM)       A ~ 3 -+   +- 6   A SCL  I2C
+//    I2C            SDA A ~ 4 -+   +- 5 ~ A      red    OUT(PWM)
+//                              +---+
+
+#define COLOUR_PIN A0
+#define PIR_PIN    9
+#define DARK_PIN   8
+
+#define RED_PIN    5
+#define GREEN_PIN  2
+#define BLUE_PIN   3
+
+#elif defined(__AVR_ATtiny84__)
 
 // ATTiny84 pins: A=ADC, ~=PWM, 1=arduino pin no.
 //

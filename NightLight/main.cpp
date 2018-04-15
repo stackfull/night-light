@@ -13,6 +13,14 @@ NightLight night_light;
 void setup() {
   commsSetup();
   lightsSetup();
+  pinMode(DARK_PIN, INPUT);
+  pinMode(PIR_PIN, INPUT);
+
+  lightsOff();
+  delay(300);
+  lightsUpdate();
+  delay(500);
+  lightsOff();
 }
 
 

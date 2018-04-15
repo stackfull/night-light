@@ -22,11 +22,11 @@ void NightLight::motion() {
 
 void NightLight::stillness() {
   switch (state) {
-    case IDLE: break;
-    case DAYTIME: break;
     case ACTIVE:
       commsSendEvent(STILLNESS);
       state = IDLE;
+    case IDLE:
+    case DAYTIME:
       lightsOff();
       break;
   }
@@ -37,8 +37,9 @@ void NightLight::light() {
     case IDLE:
       commsSendEvent(LIGHT);
       state = DAYTIME;
+    case DAYTIME:
+      lightsOff();
       break;
-    case DAYTIME: break;
     case ACTIVE: break;
   }
 }

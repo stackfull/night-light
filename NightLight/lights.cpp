@@ -14,7 +14,6 @@ void lightsSetup() {
   pinMode(GREEN_PIN, OUTPUT);
   pinMode(BLUE_PIN, OUTPUT);
   pinMode(COLOUR_PIN, INPUT);
-  pinMode(PIR_PIN, INPUT);
 }
 
 void lightsOff() {
